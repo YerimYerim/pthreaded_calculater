@@ -3,9 +3,9 @@
 //All results are passed from the thread to main and printed there.
 //To compile: gcc ThreadedFactorialSums.c -lpthread
 #include <pthread.h>
-#include <studio.h>
+#include <stdio.h>
 #include <stdlib.h>
-#define NUMT 8 //Num threads
+#define NUMT 16 //Num threads
 
 //longs are used instead of ints due to the type casting to void pointers
 //to pass and return them to the threads. 
@@ -17,7 +17,7 @@ void *process( void* param ){ //Function where the threads begin and split based
 
 	long num = 0;
 	printf("myid: %ld\n", (long)param); //쓰레드 아이디.
-	num = fact((long)param);
+	num = fact((long)10);
 	pthread_exit( (void*) num );
 }
 
